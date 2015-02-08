@@ -2,7 +2,12 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.utils.importlib import import_module
+
+try:
+    from importlib import import_module
+except ImportError:
+    # this was removed in Django 1.8
+    from django.utils.importlib import import_module
 
 
 # Default settings
